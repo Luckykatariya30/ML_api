@@ -20,9 +20,9 @@ def predict(req:Iris_model):
     prediction = pre_model.predict([pre_test_list])
     print(prediction)
 
-    if prediction[0] == 0:
+    if prediction[0] == '0':
         return 'this is Iris-setosa '
-    elif prediction[0] == 1:
+    elif prediction[0] == '1':
         return 'this is Iris-versicolor '
     else:
         return "this is Iris-virginica "
@@ -39,7 +39,13 @@ def petient_predict(req:Petient_model):
         predi_list = [age,h,w]
         predicts = peti_model.predict([predi_list])
 
-        print(predicts)
+        # print(predicts[0][0])
+        if predicts[0]== None:
+             return "this is wrong value !"
+        else:
+             return f"this is your predict value {predicts[0][0]}"
+
+        
 
 
  #["Age","Height","Weight"]
